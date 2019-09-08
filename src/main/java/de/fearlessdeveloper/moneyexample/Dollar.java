@@ -14,8 +14,7 @@ public class Dollar {
     }
 
     public Dollar times(int multiplier) {
-        amount = amount * multiplier;
-        return this;
+        return new Dollar(amount * multiplier);
     }
 
     @Override
