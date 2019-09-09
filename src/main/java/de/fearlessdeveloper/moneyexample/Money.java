@@ -13,7 +13,7 @@ abstract public class Money {
     }
 
     static Money dollar(int amount) {
-        return new Dollar(amount);
+        return new Dollar(amount, Currency.USD);
     }
 
     static Money franc(int amount) {
