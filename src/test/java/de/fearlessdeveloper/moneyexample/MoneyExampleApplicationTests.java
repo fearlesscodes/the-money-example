@@ -25,10 +25,19 @@ public class MoneyExampleApplicationTests {
 	}
 
 	@Test
+	public void francMultiplication() {
+		var fiveFranc = new Franc(5);
+		assertThat(fiveFranc.getAmount(), is(5));
+		assertEquals(fiveFranc, new Franc(5));
+		assertNotEquals(fiveFranc, new Franc(4));
+	}
+
+	@Test
     public void equality() {
 	    // Triangulation
 	    assertTrue(new Dollar(5).equals(new Dollar(5)));
 	    assertFalse(new Dollar(6).equals(new Dollar(5)));
 
     }
+
 }
