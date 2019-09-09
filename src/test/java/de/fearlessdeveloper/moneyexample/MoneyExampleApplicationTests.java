@@ -44,4 +44,10 @@ public class MoneyExampleApplicationTests {
 
     }
 
+    @Test
+	public void testCurrency() {
+		assertEquals(Currency.USD, Money.dollar(4).getCurrency());
+		assertEquals(Currency.CHF, Money.franc(4).getCurrency());
+	}
+
 }

@@ -16,6 +16,10 @@ public class Franc extends Money {
         return new Franc(amount * multiplier);
     }
 
+    public Currency getCurrency() {
+        return Currency.CHF;
+    }
+
 
     @Override
     public int hashCode() {

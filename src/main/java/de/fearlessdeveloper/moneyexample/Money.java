@@ -2,6 +2,7 @@ package de.fearlessdeveloper.moneyexample;
 
 abstract public class Money {
     protected int amount;
+    protected Currency currency;
 
     @Override
     public boolean equals(Object o) {
@@ -22,4 +23,5 @@ abstract public class Money {
     abstract Money times(int multiplier);
 
     abstract int getAmount();
+    abstract Currency getCurrency();
 }
