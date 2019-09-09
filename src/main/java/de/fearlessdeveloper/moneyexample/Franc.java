@@ -5,8 +5,7 @@ import java.util.Objects;
 public class Franc extends Money {
 
     public Franc(int amount, Currency currency) {
-        this.amount = amount;
-        this.currency = currency;
+        super(amount, currency);
     }
 
     public int getAmount() {
