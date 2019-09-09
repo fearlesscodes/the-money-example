@@ -12,7 +12,7 @@ public class Franc extends Money {
         return amount;
     }
 
-    public Franc times(int multiplier) {
+    public Money times(int multiplier) {
         return new Franc(amount * multiplier);
     }
 

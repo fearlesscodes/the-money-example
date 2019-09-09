@@ -17,10 +17,10 @@ public class MoneyExampleApplicationTests {
 	}
 
 	@Test
-	public void dollarMulitplication() {
+	public void dollarMultiplication() {
 		var fiveDollar = new Dollar(5);
 		assertThat(fiveDollar.getAmount(), is(5));
-        assertEquals(new Dollar(10), fiveDollar.times(2));
+		assertEquals(new Dollar(10), fiveDollar.times(2));
 		assertThat(fiveDollar.getAmount(), is(5));
 	}
 
@@ -28,8 +28,8 @@ public class MoneyExampleApplicationTests {
 	public void francMultiplication() {
 		var fiveFranc = new Franc(5);
 		assertThat(fiveFranc.getAmount(), is(5));
-		assertEquals(fiveFranc, new Franc(5));
-		assertNotEquals(fiveFranc, new Franc(4));
+		assertEquals(new Franc(10), fiveFranc.times(2));
+		assertThat(fiveFranc.getAmount(), is(5));
 	}
 
 
