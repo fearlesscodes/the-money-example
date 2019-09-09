@@ -19,7 +19,7 @@ public class MoneyExampleApplicationTests {
 	@Test
 	public void dollarMultiplication() {
 		Money fiveDollar = Money.dollar(5);
-		assertEquals(new Dollar(10), fiveDollar.times(2));
+		assertEquals(Money.dollar(10), fiveDollar.times(2));
 	}
 
 	@Test
@@ -34,13 +34,13 @@ public class MoneyExampleApplicationTests {
 	@Test
     public void equality() {
 	    // Triangulation
-	    assertTrue(new Dollar(5).equals(new Dollar(5)));
-		assertFalse(new Dollar(6).equals(new Dollar(5)));
+	    assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+		assertFalse(Money.dollar(6).equals(Money.dollar(5)));
 
 		assertTrue(new Franc(5).equals(new Franc(5)));
 		assertFalse(new Franc(6).equals(new Franc(5)));
 
-		assertFalse(new Franc(5).equals(new Dollar(5)));
+		assertFalse(new Franc(5).equals(Money.dollar(5)));
 
     }
 
