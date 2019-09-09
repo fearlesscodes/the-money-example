@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Franc extends Money {
 
-    public Franc(int amount) {
+    public Franc(int amount, Currency currency) {
         this.amount = amount;
         this.currency = Currency.CHF;
     }
@@ -14,7 +14,7 @@ public class Franc extends Money {
     }
 
     public Money times(int multiplier) {
-        return new Franc(amount * multiplier);
+        return new Franc(amount * multiplier, null);
     }
 
     @Override
