@@ -23,5 +23,9 @@ abstract public class Money {
     abstract Money times(int multiplier);
 
     abstract int getAmount();
-    abstract Currency getCurrency();
+
+    public Currency getCurrency() {
+        return this.currency;
+    }
+
 }
