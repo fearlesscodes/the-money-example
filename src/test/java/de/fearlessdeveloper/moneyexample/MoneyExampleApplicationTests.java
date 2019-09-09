@@ -24,9 +24,9 @@ public class MoneyExampleApplicationTests {
 
 	@Test
 	public void francMultiplication() {
-		var fiveFranc = new Franc(5);
+		var fiveFranc = Money.franc(5);
 		assertThat(fiveFranc.getAmount(), is(5));
-		assertEquals(new Franc(10), fiveFranc.times(2));
+		assertEquals(Money.franc(10), fiveFranc.times(2));
 		assertThat(fiveFranc.getAmount(), is(5));
 	}
 
@@ -37,10 +37,10 @@ public class MoneyExampleApplicationTests {
 	    assertTrue(Money.dollar(5).equals(Money.dollar(5)));
 		assertFalse(Money.dollar(6).equals(Money.dollar(5)));
 
-		assertTrue(new Franc(5).equals(new Franc(5)));
-		assertFalse(new Franc(6).equals(new Franc(5)));
+		assertTrue(Money.franc(5).equals(Money.franc(5)));
+		assertFalse(Money.franc(6).equals(Money.franc(5)));
 
-		assertFalse(new Franc(5).equals(Money.dollar(5)));
+		assertFalse(Money.franc(5).equals(Money.dollar(5)));
 
     }
 
