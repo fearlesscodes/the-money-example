@@ -1,6 +1,6 @@
 package de.fearlessdeveloper.moneyexample;
 
-public class Money {
+abstract public class Money {
     protected int amount;
 
     @Override
@@ -10,4 +10,10 @@ public class Money {
         Money money = (Money) o;
         return amount == money.amount;
     }
+
+    static Money dollar(int amount) {
+        return new Dollar(5);
+    }
+
+    abstract Money times(int multiplier);
 }

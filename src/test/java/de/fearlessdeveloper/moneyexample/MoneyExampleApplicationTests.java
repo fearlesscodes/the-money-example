@@ -18,10 +18,8 @@ public class MoneyExampleApplicationTests {
 
 	@Test
 	public void dollarMultiplication() {
-		var fiveDollar = new Dollar(5);
-		assertThat(fiveDollar.getAmount(), is(5));
+		Money fiveDollar = Money.dollar(5);
 		assertEquals(new Dollar(10), fiveDollar.times(2));
-		assertThat(fiveDollar.getAmount(), is(5));
 	}
 
 	@Test
