@@ -6,6 +6,7 @@ public class Dollar extends Money {
 
     public Dollar(int amount) {
         this.amount = amount;
+        this.currency = Currency.USD;
     }
 
     public int getAmount() {

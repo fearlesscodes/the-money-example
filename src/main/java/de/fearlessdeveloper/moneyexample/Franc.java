@@ -6,6 +6,7 @@ public class Franc extends Money {
 
     public Franc(int amount) {
         this.amount = amount;
+        this.currency = Currency.CHF;
     }
 
     public int getAmount() {
