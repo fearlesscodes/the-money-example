@@ -1,6 +1,8 @@
 package de.fearlessdeveloper.moneyexample;
 
-abstract public class Money {
+import java.util.Objects;
+
+class Money {
     protected int amount;
     protected Currency currency;
 
@@ -12,9 +14,8 @@ abstract public class Money {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Money money = (Money) o;
-        return amount == money.amount;
+        return amount == money.amount && getCurrency() == ((Money) o).getCurrency();
     }
 
     static Money dollar(int amount) {
@@ -25,7 +26,9 @@ abstract public class Money {
         return new Franc(amount, Currency.CHF);
     }
 
-    abstract Money times(int multiplier);
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
 
     public int getAmount() {
         return amount;
@@ -33,6 +36,10 @@ abstract public class Money {
 
     public Currency getCurrency() {
         return this.currency;
+    }
+
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 
 }
