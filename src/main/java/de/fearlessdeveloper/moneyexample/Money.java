@@ -19,11 +19,11 @@ class Money {
     }
 
     static Money dollar(int amount) {
-        return new Dollar(amount, Currency.USD);
+        return new Money(amount, Currency.USD);
     }
 
     static Money franc(int amount) {
-        return new Franc(amount, Currency.CHF);
+        return new Money(amount, Currency.CHF);
     }
 
     public Money times(int multiplier) {
