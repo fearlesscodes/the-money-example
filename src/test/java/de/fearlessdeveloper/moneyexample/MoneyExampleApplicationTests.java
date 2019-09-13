@@ -51,6 +51,12 @@ public class MoneyExampleApplicationTests {
 	}
 
 	@Test
+	public void testAddAmountOfMoney() {
+		assertThat(Money.franc(10).plus(Money.franc(10)).getAmount(), is(20));
+		assertThat(Money.dollar(10).plus(Money.dollar(10)).getAmount(), is(20));
+	}
+
+	@Test
 	public void testDifferentCurrency() {}
 
 }

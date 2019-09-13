@@ -42,4 +42,8 @@ class Money {
         return Objects.hash(amount);
     }
 
+    public Money plus(Money amountToAdd) {
+        return new Money(amount + amountToAdd.getAmount(), currency);
+    }
+
 }
