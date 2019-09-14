@@ -2,7 +2,7 @@ package de.fearlessdeveloper.moneyexample;
 
 import java.util.Objects;
 
-class Money {
+class Money implements Expression {
     protected int amount;
     protected Currency currency;
 
@@ -42,8 +42,8 @@ class Money {
         return Objects.hash(amount);
     }
 
-    public Money plus(Money amountToAdd) {
-        return new Money(amount + amountToAdd.getAmount(), currency);
+    public Expression plus(Money amountToAdd) {
+        return new Sum(this, amountToAdd);
     }
 
 }

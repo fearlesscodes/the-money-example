@@ -51,12 +51,27 @@ public class MoneyExampleApplicationTests {
 	}
 
 	@Test
-	public void testAddAmountOfMoney() {
-		assertThat(Money.franc(10).plus(Money.franc(10)).getAmount(), is(20));
-		assertThat(Money.dollar(10).plus(Money.dollar(10)).getAmount(), is(20));
+	public void testPlusResultSum() {
+		var fiveDollar = Money.dollar(5);
+		Expression result = fiveDollar.plus(fiveDollar);
+		var sum = (Sum) result;
+		assertEquals(fiveDollar, sum.augend);
+		assertEquals(fiveDollar, sum.addend);
 	}
 
 	@Test
-	public void testDifferentCurrency() {}
+	public void testReduceSum() {
+		Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+		var bank = new Bank();
+		Money result = bank.reduce(sum, Currency.USD);
+		assertEquals(Money.dollar(7), result);
+	}
+
+	@Test
+	public void testReduceMoney() {
+		var bank = new Bank();
+		Money result = bank.reduce(Money.dollar(1), Currency.USD);
+		assertEquals(Money.dollar(1), result);
+	}
 
 }
