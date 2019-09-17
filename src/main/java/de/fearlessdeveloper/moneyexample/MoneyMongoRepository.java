@@ -24,7 +24,14 @@ public class MoneyMongoRepository {
         mongoTemplate.save(money);
     }
 
+    public void saveAll(List<Money> listOfMoney) {
+        listOfMoney.stream().forEach(money -> saveOne(money));
+    }
     public boolean isEmpty() {
         return this.mongoTemplate.findAll(Money.class).isEmpty();
+    }
+
+    public int count() {
+       return mongoTemplate.findAll(Money.class).size();
     }
 }

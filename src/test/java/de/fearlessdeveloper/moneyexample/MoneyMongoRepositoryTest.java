@@ -1,5 +1,6 @@
 package de.fearlessdeveloper.moneyexample;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -49,6 +52,16 @@ public class MoneyMongoRepositoryTest {
 
 
     @Test
-    public void testSaveMoneyPlusCall() {
+    public void testSaveAll() {
+        var fiveDollar = Money.dollar(5);
+        var tenTollar = Money.dollar(10);
+        assertThat(repo.isEmpty(), is(true));
+        repo.saveAll(List.of(fiveDollar, tenTollar));
+        assertThat(repo.count(), is(2));
+    }
+
+    @After
+    public void clearAfterTestRun() {
+        repo.clean();
     }
 }
