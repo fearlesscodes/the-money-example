@@ -1,5 +1,7 @@
 package de.fearlessdeveloper.moneyexample;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Objects;
 
 class Money implements Expression {

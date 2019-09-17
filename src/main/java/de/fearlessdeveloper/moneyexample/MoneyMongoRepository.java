@@ -17,7 +17,7 @@ public class MoneyMongoRepository {
     }
 
     public void clean() {
-
+        this.mongoTemplate.dropCollection(Money.class);
     }
 
     public void saveOne(Money money) {

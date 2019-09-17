@@ -40,7 +40,11 @@ public class MoneyMongoRepositoryTest {
 
     @Test
     public void testRepoClean() {
-
+        assertThat(repo.isEmpty(), is(true));
+        repo.saveOne(fiveDollar);
+        assertThat(repo.isEmpty(), is(false));
+        repo.clean();
+        assertThat(repo.isEmpty(), is(true));
     }
 
 
