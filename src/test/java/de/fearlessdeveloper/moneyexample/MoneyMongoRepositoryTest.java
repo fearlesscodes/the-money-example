@@ -35,7 +35,7 @@ public class MoneyMongoRepositoryTest {
     public void testAddMoney() {
         assertThat(repo.isEmpty(), is(true));
         repo.saveOne(fiveDollar);
-        var moneyArgument = ArgumentCaptor.forClass(Money.class);
+        assertThat(repo.isEmpty(), is(false));
     }
 
     @Test
