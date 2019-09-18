@@ -15,6 +15,7 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -58,6 +59,28 @@ public class MoneyMongoRepositoryTest {
         assertThat(repo.isEmpty(), is(true));
         repo.saveAll(List.of(fiveDollar, tenTollar));
         assertThat(repo.count(), is(2));
+    }
+
+    @Test
+    public void findAll() {
+        var fiveDollar = Money.dollar(5);
+        var tenTollar = Money.dollar(10);
+        assertThat(repo.isEmpty(), is(true));
+        repo.saveAll(List.of(fiveDollar, tenTollar));
+        assertThat(repo.findAll().size(), is(2));
+    }
+
+    @Test
+    public void removeAllMoneyGreaterThan() {
+        var fiveDollar = Money.dollar(5);
+        var tenTollar = Money.dollar(10);
+        assertThat(repo.isEmpty(), is(true));
+        repo.saveAll(List.of(fiveDollar, tenTollar));
+        repo.removeAllGreaterThan(Money.dollar(6));
+        assertThat(repo.count(), is(1));
+        repo.findAll().stream().forEach(money -> {
+            assertEquals(money, fiveDollar);
+        });
     }
 
     @After
