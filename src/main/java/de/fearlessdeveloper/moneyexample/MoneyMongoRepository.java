@@ -15,9 +15,6 @@ public class MoneyMongoRepository {
         this.mongoTemplate = mongoTemplate;
     }
 
-    public void addMoney(Money money) {
-        mongoTemplate.save(money);
-    }
 
     public void clean() {
         this.mongoTemplate.dropCollection(Money.class);
