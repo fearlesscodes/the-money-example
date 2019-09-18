@@ -44,6 +44,11 @@ public class MoneyMongoRepository {
         return this.mongoTemplate.findAll(Money.class).isEmpty();
     }
 
+    public List<Money> findAllMoneyGreaterThan(Money money) {
+        var query = new Query(where("amount").gt(money.getAmount()));
+        return this.mongoTemplate.find(query, Money.class);
+    }
+
     public int count() {
        return mongoTemplate.findAll(Money.class).size();
     }

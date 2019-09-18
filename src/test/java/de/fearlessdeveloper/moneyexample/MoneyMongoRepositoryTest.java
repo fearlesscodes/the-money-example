@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
@@ -80,6 +81,19 @@ public class MoneyMongoRepositoryTest {
         assertThat(repo.count(), is(1));
         repo.findAll().stream().forEach(money -> {
             assertEquals(money, fiveDollar);
+        });
+    }
+
+    @Test
+    public void testFindAllMoneyGreaterThan() {
+        var fiveDollar = Money.dollar(5);
+        var tenDollar = Money.dollar(10);
+        assertThat(repo.isEmpty(), is(true));
+        repo.saveAll(List.of(fiveDollar, tenDollar));
+        assertThat(repo.findAllMoneyGreaterThan(Money.dollar(5)).size(), is(1));
+        repo.findAllMoneyGreaterThan(fiveDollar).stream().forEach(money -> {
+            assertThat(money.getAmount() > fiveDollar.getAmount(), is(true));
+            assertThat(money.getAmount() < fiveDollar.getAmount(), is(false));
         });
     }
 
